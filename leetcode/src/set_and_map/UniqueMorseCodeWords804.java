@@ -1,4 +1,4 @@
-package set;
+package set_and_map;
 
 import java.util.Set;
 import java.util.TreeSet;

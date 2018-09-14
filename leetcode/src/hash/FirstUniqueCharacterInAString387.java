@@ -1,0 +1,39 @@
+package hash;
+
+public class FirstUniqueCharacterInAString387 {
+	class Solution {
+	    public int firstUniqChar(String s) {
+	        if (s == null || s.length() == 0) {
+				return -1;
+			}
+	        
+	    	int[] charSet = new int[26];
+	        
+	        for(int i = 0; i < s.length();i++) {
+	        	charSet[s.charAt(i)-'a']++;
+	        }
+	        
+	        for(int i = 0; i <s.length();i++) {
+	        	if (charSet[s.charAt(i)-'a']==1) {
+	        		return i;
+				}
+	        }
+	        return -1;
+	    }
+	}
+	
+	class Solution2 {
+	    public int firstUniqChar(String s) {
+	        if (null == s || "".equals(s)) return -1;
+	        int res = s.length();
+	        for(char c = 'a'; c <= 'z'; c++) {
+	            int index = s.indexOf(c);
+	            if (index == -1) continue;
+	            if (s.lastIndexOf(c) == index) {
+	                res = Math.min(res, index);
+	            }
+	        }
+	        return res == s.length()?-1:res;
+	    }
+	}
+}
