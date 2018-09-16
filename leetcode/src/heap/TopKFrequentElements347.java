@@ -15,7 +15,9 @@ public class TopKFrequentElements347 {
 	        for(int i = 0; i < nums.length;i++) {
 	        	map.put(nums[i], map.getOrDefault(nums[i], 0)+1);
 	        }
-	        
+	        //Java默认PriorityQueue是个最小堆，即优先级低的，在堆顶。
+	        //所以这里正好，我们希望堆顶是比较小的元素，正好和我们题目要求的次数越少，越不容易出现在result中的要求是一致的。
+	        //故传入的Comparator就是正常的比较大小
 	        PriorityQueue<Integer> heap = new PriorityQueue<>(new Comparator<Integer>() {
 
 				@Override
