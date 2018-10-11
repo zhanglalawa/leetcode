@@ -1,5 +1,7 @@
 package array;
 
+import java.util.Arrays;
+
 public class SortColors75 {
 	class Solution {
 	    public void sortColors(int[] nums) {
@@ -19,6 +21,7 @@ public class SortColors75 {
 	                nums[index++] = j;
 	            }
 	        }
+	        Arrays.sort(nums);
 	    }
 	}
 }
