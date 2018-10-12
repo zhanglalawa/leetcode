@@ -15,5 +15,5 @@ package base;
  * 这时候就不可能继续二分查找了，而应该把范围缩小在left到right进行顺序遍历查找
  */
 public class RotatedArray {
-
+；；
 }
