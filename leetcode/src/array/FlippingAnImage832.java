@@ -1,6 +1,6 @@
 package array;
 
-public class FlippingAnImage {
+public class FlippingAnImage832 {
 	class Solution {
 		//注意并不需要真正的交换，只有i那哥哥对称位置上面相等的时候，进行异或然后交换
 		public int[][] flipAndInvertImage(int[][] A) {
