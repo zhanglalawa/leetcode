@@ -18,7 +18,7 @@ public class MinStack {
 	public class Solution {
 
 	    Stack<Integer> stack = new Stack<>();
-	    Stack<Integer> assistStack = new Stack<>();
+	    Stack<Integer> assistStack = new Stack<>(); 
 	    public void push(int node) {
 	        
 	        if(!assistStack.isEmpty() && node >= assistStack.peek()) {//Õ»²»Îª¿Õ£¬²¢ÇÒ

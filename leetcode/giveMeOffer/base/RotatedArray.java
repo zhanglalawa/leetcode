@@ -1,4 +1,8 @@
 package base;
+
+import java.util.ArrayList;
+import java.util.Random;
+
 /*
  * 最容易想到的就是O(n)去遍历
  * 但这样这个题就没有任何意义了
@@ -15,5 +19,23 @@ package base;
  * 这时候就不可能继续二分查找了，而应该把范围缩小在left到right进行顺序遍历查找
  */
 public class RotatedArray {
-；；
+	public class Solution {
+		public int minNumberInRotateArray(int[] array) {
+			int l = 0, r = array.length - 1;
+			int mid = l;
+			while (array[l] >= array[r]) {
+				if (r - l == 1) {
+					mid = r;
+					break;
+				}
+				mid = l + (r-l)/2;
+				if (array[mid]>=array[l]) {
+					l = mid;
+				}else if (array[mid] <= array[r]) {
+					r = mid;
+				}
+			}
+			return array[mid];
+		}
+	}
 }
