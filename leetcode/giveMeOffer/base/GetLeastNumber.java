@@ -1,6 +1,8 @@
 package base;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 import java.util.Random;
 
 public class GetLeastNumber {
@@ -64,5 +66,40 @@ public class GetLeastNumber {
 	        swap(input,l,j);
 	        return j;
 	    }
+	}
+	public class Solution2 {
+	    public ArrayList<Integer> GetLeastNumbers_Solution(int [] input, int k) {
+	        if(input == null || k <= 0 || k > input.length){
+	            return new ArrayList<>();
+	        }
+	        PriorityQueue<Integer> heap = new PriorityQueue<>(k, new Comparator<Integer>() {
+				@Override
+				public int compare(Integer o1, Integer o2) {
+					if (o1 == o2) {
+						return 0;
+					}
+					if (o1 > o2) {
+						return -1;
+					} else {
+						return 1;
+					}
+				}
+			});
+	        
+	        for(int i = 0; i < k; i++) {
+	        	heap.add(input[i]);
+	        }
+	        
+	        for(int i = k; i < input.length; i++) {
+	        	if (input[i] < heap.peek()) {
+					heap.poll();
+					heap.add(input[i]);
+				}
+	        }
+	        ArrayList<Integer> ret = new ArrayList<>(heap);
+	        return ret;
+	    }
+
+
 	}
 }
